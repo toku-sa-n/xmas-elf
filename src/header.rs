@@ -297,11 +297,7 @@ pub enum Version {
 
 impl Version {
     pub fn is_none(&self) -> bool {
-        if let Version::None = *self {
-            true
-        } else {
-            false
-        }
+        matches!(*self, Version::None)
     }
 }
 
