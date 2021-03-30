@@ -261,7 +261,7 @@ pub enum Data {
 
 impl Data {
     pub fn is_none(&self) -> bool {
-        if let Data::None = *self { true } else { false }
+        matches!(*self, Data::None)
     }
 }
 
