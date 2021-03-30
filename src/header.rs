@@ -223,7 +223,7 @@ pub enum Class {
 
 impl Class {
     pub fn is_none(&self) -> bool {
-        if let Class::None = *self { true } else { false }
+        matches!(*self, Class::None)
     }
 }
 
