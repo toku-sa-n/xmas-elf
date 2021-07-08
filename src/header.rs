@@ -227,7 +227,7 @@ pub enum Class {
 
 impl Class {
     pub fn is_none(&self) -> bool {
-        if let Class::None = *self { true } else { false }
+        matches!(*self, Class::None)
     }
 }
 
@@ -265,7 +265,7 @@ pub enum Data {
 
 impl Data {
     pub fn is_none(&self) -> bool {
-        if let Data::None = *self { true } else { false }
+        matches!(*self, Data::None)
     }
 }
 
@@ -301,11 +301,7 @@ pub enum Version {
 
 impl Version {
     pub fn is_none(&self) -> bool {
-        if let Version::None = *self {
-            true
-        } else {
-            false
-        }
+        matches!(*self, Version::None)
     }
 }
 

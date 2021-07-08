@@ -45,11 +45,7 @@ pub struct ElfFile<'a> {
 
 impl<'a> ElfFile<'a> {
     pub fn new(input: &'a [u8]) -> Result<ElfFile<'a>, Error> {
-        let header = header::parse_header(input)?;
-        Ok(ElfFile {
-            input,
-            header,
-        })
+        header::parse_header(input).map(|header| ElfFile {input, header})
     }
 
     pub fn section_header(&self, index: u16) -> Result<SectionHeader<'a>, Error> {
